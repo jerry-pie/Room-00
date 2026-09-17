@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Room-00｜心と体をゆるめる、ボディメンテナンスサロン</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F7F5F0;
+    --bg-deep: #EDE8DE;
+    --ink: #2B2A27;
+    --ink-soft: #6E685F;
+    --ink-faint: #9B958A;
+    --brass: #9C8556;
+    --brass-light: #C7B48C;
+    --line: rgba(43,42,39,0.16);
+    --serif: "Noto Serif JP", serif;
+    --sans: "Noto Sans JP", sans-serif;
+    --en: "Cormorant Garamond", serif;
+    --max: 640px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink-soft);
+    font-family:var(--sans);
+    font-weight:300;
+    line-height:1.95;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;}
+  ::selection{background:var(--brass-light);color:var(--ink);}
+
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible{
+    outline:1px solid var(--ink);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  h1,h2,h3{
+    font-family:var(--serif);
+    font-weight:500;
+    margin:0;
+    letter-spacing:0.03em;
+    color:var(--ink);
+  }
+  p{margin:0;}
+
+  /* ---------- header (over hero image) ---------- */
+  .site-header{
+    position:absolute;
+    top:0;left:0;right:0;
+    z-index:5;
+    padding:26px 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .logo{
+    font-family:var(--en);
+    font-size:21px;
+    letter-spacing:0.08em;
+    color:#F7F5F0;
+  }
+  .logo em{font-style:normal;color:var(--brass-light);}
+  .header-note{
+    font-size:10.5px;
+    letter-spacing:0.18em;
+    color:rgba(247,245,240,0.85);
+    font-family:var(--sans);
+  }
+
+  /* ---------- hero image (photography-led, no overlay text) ---------- */
+  .hero-image{
+    position:relative;
+    width:100%;
+    aspect-ratio:3/4;
+    background:
+      radial-gradient(ellipse 90% 60% at 75% 100%, rgba(199,180,140,0.35), transparent 60%),
+      linear-gradient(155deg, #3E3225 0%, #5B4A34 38%, #83694A 68%, #B39A72 100%);
+  }
+  .hero-image::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(0deg, rgba(0,0,0,0.18), transparent 40%);
+  }
+
+  /* ---------- hero content (below image) ---------- */
+  .hero-content{
+    padding:56px 28px 0;
+  }
+  .section-en{
+    display:block;
+    font-family:var(--en);
+    font-style:italic;
+    font-size:14px;
+    color:var(--brass);
+    margin-bottom:14px;
+    letter-spacing:0.04em;
+  }
+  .hero-content h1{
+    font-size:clamp(24px, 6vw, 30px);
+    line-height:1.85;
+  }
+  .hero-lead{
+    display:block;
+    margin-top:24px;
+    font-size:14px;
+    color:var(--ink-soft);
+    line-height:2.1;
+  }
+  .cta-button{
+    display:inline-block;
+    margin-top:32px;
+    padding:16px 44px;
+    background:transparent;
+    border:1px solid var(--ink);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:13.5px;
+    letter-spacing:0.14em;
+    text-decoration:none;
+    transition:background 0.35s ease, color 0.35s ease;
+  }
+  .cta-button:hover{
+    background:var(--ink);
+    color:var(--bg);
+  }
+  .cta-button.solid{
+    background:var(--ink);
+    color:var(--bg);
+  }
+  .cta-button.solid:hover{
+    background:var(--brass);
+    border-color:var(--brass);
+    color:#fff;
+  }
+
+  /* ---------- quick facts (peninsula-style meta rows) ---------- */
+  .quickfacts{
+    margin-top:52px;
+    border-top:1px solid var(--line);
+  }
+  .qf-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:18px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .qf-label{
+    font-size:10.5px;
+    letter-spacing:0.16em;
+    color:var(--ink-faint);
+  }
+  .qf-value{
+    font-family:var(--serif);
+    font-size:13.5px;
+    color:var(--ink);
+    text-align:right;
+  }
+
+  /* ---------- section base ---------- */
+  section{
+    position:relative;
+    padding:80px 0;
+  }
+  .section-head{
+    margin-bottom:44px;
+  }
+  .section-head h2{
+    font-size:21px;
+    line-height:1.7;
+  }
+  .divider{
+    width:36px;
+    height:1px;
+    background:var(--brass);
+    margin:20px 0 0;
+  }
+
+  /* ---------- concept ---------- */
+  .concept p{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin-top:20px;
+  }
+  .concept p:first-of-type{margin-top:0;}
+
+  /* ---------- reasons ---------- */
+  .reasons-list{
+    list-style:none;
+    margin:0;padding:0;
+    border-top:1px solid var(--line);
+  }
+  .reasons-list li{
+    display:grid;
+    grid-template-columns:44px 1fr;
+    gap:6px 18px;
+    padding:28px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .reason-num{
+    font-family:var(--en);
+    font-size:20px;
+    font-style:italic;
+    color:var(--brass);
+    line-height:1.4;
+  }
+  .reason-title{
+    font-family:var(--serif);
+    font-size:15.5px;
+    margin-bottom:10px;
+    color:var(--ink);
+  }
+  .reason-text{
+    grid-column:2;
+    font-size:13px;
+    color:var(--ink-soft);
+    line-height:1.95;
+  }
+
+  /* ---------- flow ---------- */
+  .flow-list{
+    list-style:none;
+    margin:0;padding:0;
+    border-top:1px solid var(--line);
+  }
+  .flow-list li{
+    display:grid;
+    grid-template-columns:44px 1fr;
+    gap:6px 18px;
+    padding:26px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .flow-num{
+    font-family:var(--en);
+    font-size:20px;
+    font-style:italic;
+    color:var(--brass);
+  }
+  .flow-title{
+    font-family:var(--serif);
+    font-size:15px;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .flow-text{
+    grid-column:2;
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- pricing ---------- */
+  .pricing-note{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-bottom:32px;
+  }
+  .price-table{
+    border-top:1px solid var(--line);
+  }
+  .price-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .price-time{
+    font-family:var(--serif);
+    font-size:14.5px;
+    color:var(--ink);
+  }
+  .price-time span{
+    display:block;
+    font-family:var(--sans);
+    font-size:11px;
+    color:var(--ink-faint);
+    margin-top:4px;
+    letter-spacing:0.04em;
+  }
+  .price-value{
+    font-family:var(--en);
+    font-size:20px;
+    color:var(--ink);
+  }
+  .price-value sup{font-size:12px;margin-right:2px;color:var(--ink-faint);}
+
+  /* ---------- message (quiet pull-quote, alt bg) ---------- */
+  .message{
+    background:var(--bg-deep);
+  }
+  .message-body{
+    margin-top:0;
+    padding-left:22px;
+    border-left:1px solid var(--brass);
+    font-size:13.5px;
+    line-height:2.15;
+    color:var(--ink-soft);
+  }
+  .message-body p{margin-top:22px;}
+  .message-body p:first-child{margin-top:0;}
+  .message-sign{
+    margin-top:26px;
+    margin-left:22px;
+    font-family:var(--en);
+    font-style:italic;
+    font-size:16px;
+    color:var(--brass);
+  }
+
+  /* ---------- faq ---------- */
+  .faq-item{
+    border-top:1px solid var(--line);
+  }
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-item summary{
+    list-style:none;
+    padding:22px 30px 22px 0;
+    position:relative;
+    cursor:pointer;
+    font-family:var(--serif);
+    font-size:14px;
+    line-height:1.75;
+    color:var(--ink);
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::before{
+    content:"Q";
+    font-family:var(--en);
+    font-style:italic;
+    color:var(--brass);
+    margin-right:10px;
+  }
+  .faq-item summary::after{
+    content:"+";
+    position:absolute;
+    right:2px;top:20px;
+    font-size:18px;
+    font-weight:300;
+    color:var(--ink-faint);
+    transition:transform 0.25s ease;
+  }
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-answer{
+    padding:0 30px 24px 0;
+    font-size:13px;
+    color:var(--ink-soft);
+    line-height:1.95;
+  }
+
+  /* ---------- closing ---------- */
+  .closing{
+    text-align:center;
+  }
+  .closing p{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-top:18px;
+  }
+  .closing .divider{margin:22px auto 0;}
+  .closing h2{font-size:20px;line-height:1.9;}
+  .closing .cta-button{margin-top:36px;}
+
+  /* ---------- footer ---------- */
+  footer{
+    padding:48px 0 120px;
+    text-align:center;
+    border-top:1px solid var(--line);
+  }
+  footer .logo{
+    display:block;
+    margin-bottom:14px;
+    font-size:18px;
+    color:var(--ink);
+  }
+  footer .logo em{color:var(--brass);}
+  footer p{
+    font-size:11px;
+    color:var(--ink-faint);
+    margin-top:6px;
+    letter-spacing:0.03em;
+  }
+  footer a.reserve-link{
+    display:inline-block;
+    margin-top:18px;
+    font-size:12px;
+    text-decoration:underline;
+    text-underline-offset:4px;
+    color:var(--brass);
+  }
+
+  /* ---------- sticky cta (mobile) ---------- */
+  .sticky-cta{
+    position:fixed;
+    left:0;right:0;bottom:0;
+    z-index:10;
+    padding:14px 20px calc(14px + env(safe-area-inset-bottom));
+    background:rgba(247,245,240,0.92);
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+    border-top:1px solid var(--line);
+  }
+  .sticky-cta a{
+    display:block;
+    text-align:center;
+    padding:15px;
+    background:var(--ink);
+    color:var(--bg);
+    font-family:var(--serif);
+    font-size:13.5px;
+    letter-spacing:0.1em;
+    text-decoration:none;
+  }
+  .sticky-cta a:hover{background:var(--brass);}
+
+  /* ---------- desktop ---------- */
+  @media (min-width:768px){
+    :root{--max:920px;}
+    .hero-image{aspect-ratio:16/8;}
+    .hero-content{padding:64px 60px 0;max-width:920px;margin:0 auto;}
+    .hero-content h1{font-size:32px;max-width:560px;}
+    .hero-lead{max-width:520px;}
+    section{padding:110px 0;}
+    .quickfacts{display:flex;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+    .qf-row{flex:1;flex-direction:column;align-items:flex-start;gap:8px;border-bottom:none;border-right:1px solid var(--line);padding:22px 26px;}
+    .qf-row:last-child{border-right:none;}
+    .qf-value{text-align:left;}
+    .message-body{columns:2;column-gap:48px;}
+    .message-body p{break-inside:avoid;}
+    .sticky-cta{display:none;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .cta-button,.sticky-cta a{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="logo">Room<em>-00</em></span>
+  <span class="header-note">BODY MAINTENANCE SALON</span>
+</header>
+
+<div class="hero-image" aria-hidden="true"></div>
+
+<div class="hero-content wrap">
+  <span class="section-en">Once a month</span>
+  <h1>何も考えない時間を、月に一度。<br>心と体をゆるめる、<br>ボディメンテナンスサロン。</h1>
+  <span class="hero-lead">筋膜ケアをベースに、こわばった体をゆっくりゆるめながら、心までふっと軽くなる時間を。</span>
+  <a href="#reserve" class="cta-button">ご予約はこちら</a>
+
+  <div class="quickfacts">
+    <div class="qf-row">
+      <span class="qf-label">所要時間</span>
+      <span class="qf-value">70分・90分・120分</span>
+    </div>
+    <div class="qf-row">
+      <span class="qf-label">頻度の目安</span>
+      <span class="qf-value">月に一度</span>
+    </div>
+    <div class="qf-row">
+      <span class="qf-label">ご予約</span>
+      <span class="qf-value">オンライン・お電話</span>
+    </div>
+  </div>
+</div>
+
+<section class="concept">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-en">Concept</span>
+      <h2>頑張る女性のための、<br>「心と体のエステサロン」</h2>
+      <div class="divider"></div>
+    </div>
+    <p>仕事や家事、人との関わりの中で、知らないうちに体に力が入っていませんか？</p>
+    <p>筋膜ケアをベースに、こわばった体をゆっくりゆるめながら、心までふっと軽くなる時間をお届けします。</p>
+    <p>月に一度、何も考えず自分を休ませる。そんな場所でありたいと思っています。</p>
+  </div>
+</section>
+
+<section class="reasons">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-en">Reasons</span>
+      <h2>Room-00が選ばれる理由</h2>
+      <div class="divider"></div>
+    </div>
+    <ul class="reasons-list">
+      <li>
+        <span class="reason-num">01</span>
+        <div>
+          <p class="reason-title">頑張る女性のための「休む時間」</p>
+        </div>
+        <p class="reason-text">仕事も家事も、人との関わりも大切にするあなたへ。誰かのためではなく、自分のために過ごす時間をご用意しています。</p>
+      </li>
+      <li>
+        <span class="reason-num">02</span>
+        <div>
+          <p class="reason-title">無意識の「力み」に着目したケア</p>
+        </div>
+        <p class="reason-text">肩や首、背中など、知らないうちに力が入りやすい体を丁寧にケア。「なんだかずっと力が抜けない」そんな方にもおすすめです。</p>
+      </li>
+      <li>
+        <span class="reason-num">03</span>
+        <div>
+          <p class="reason-title">筋膜ボディバランストリートメント</p>
+        </div>
+        <p class="reason-text">全身を丁寧に触れながら、こわばった体をゆっくりゆるめていきます。その日の体の状態に合わせて、心地よく整えていきます。</p>
+      </li>
+      <li>
+        <span class="reason-num">04</span>
+        <div>
+          <p class="reason-title">何も考えなくていい空間</p>
+        </div>
+        <p class="reason-text">ここでは、頑張って話さなくても大丈夫。静かに過ごしたい日も、ゆっくり話したい日も、その日のあなたに合わせてお迎えします。</p>
+      </li>
+      <li>
+        <span class="reason-num">05</span>
+        <div>
+          <p class="reason-title">月に一度、戻ってきたくなる場所</p>
+        </div>
+        <p class="reason-text">「また頑張ろう」と思うためには、ちゃんと休むことも大切。Room-00が、あなたにとってそんな“月に一度のパワースポット”になれたら嬉しいです。</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="flow">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-en">Flow</span>
+      <h2>施術の流れ</h2>
+      <div class="divider"></div>
+    </div>
+    <ul class="flow-list">
+      <li>
+        <span class="flow-num">1</span>
+        <div>
+          <p class="flow-title">カウンセリング</p>
+        </div>
+        <p class="flow-text">今日の体調やお悩みを丁寧に伺います。</p>
+      </li>
+      <li>
+        <span class="flow-num">2</span>
+        <div>
+          <p class="flow-title">ボディチェック</p>
+        </div>
+        <p class="flow-text">力みやこわばりのある部分を確認します。</p>
+      </li>
+      <li>
+        <span class="flow-num">3</span>
+        <div>
+          <p class="flow-title">施術</p>
+        </div>
+        <p class="flow-text">筋膜ボディバランストリートメントで、体をゆっくりゆるめます。</p>
+      </li>
+      <li>
+        <span class="flow-num">4</span>
+        <div>
+          <p class="flow-title">アフターカウンセリング</p>
+        </div>
+        <p class="flow-text">体の変化を一緒に確認し、次回に向けてご相談します。</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-en">Price</span>
+      <h2>料金・所要時間</h2>
+      <div class="divider"></div>
+    </div>
+    <p class="pricing-note">オーダーメイド施術のため、その日の体の状態に合わせて内容を調整いたします。</p>
+    <div class="price-table">
+      <div class="price-row">
+        <span class="price-time">70分<span>ボディメンテナンス</span></span>
+        <span class="price-value"><sup>¥</sup>17,600</span>
+      </div>
+      <div class="price-row">
+        <span class="price-time">90分<span>ボディメンテナンス</span></span>
+        <span class="price-value"><sup>¥</sup>22,000</span>
+      </div>
+      <div class="price-row">
+        <span class="price-time">120分<span>ボディメンテナンス</span></span>
+        <span class="price-value"><sup>¥</sup>28,380</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="message">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-en">Message</span>
+      <h2>サロンより</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="message-body">
+      <p>はじめまして、Room-00です。<br>私自身、頑張ることが当たり前になっている女性をたくさん見てきました。</p>
+      <p>周りのことを考えて、仕事を頑張って、家族を大切にして……気づけば、自分のことは後回し。「疲れているけれど、まだ頑張れる」そんなふうに過ごしていませんか？</p>
+      <p>Room-00では、施術を受ける時間だけでも、誰かのためではなく“自分のため”に過ごしてほしいと思っています。</p>
+      <p>何も考えず、ゆっくり呼吸する。体の力を抜いて、自分の体に目を向ける。月に一度、ここへ来ると「また頑張れそう」と思える。</p>
+      <p>そんな場所を、一緒につくっていけたら嬉しいです。</p>
+    </div>
+    <p class="message-sign">Room-00</p>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-en">FAQ</span>
+      <h2>よくある質問</h2>
+      <div class="divider"></div>
+    </div>
+
+    <details class="faq-item">
+      <summary>エステが初めてでも大丈夫ですか？</summary>
+      <p class="faq-answer">もちろん大丈夫です。お体の状態やお悩みを伺いながら、その日の状態に合わせて施術いたします。無理にコースをおすすめすることもありませんので、安心してお越しください。</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>どんな服装で行けばいいですか？</summary>
+      <p class="faq-answer">施術用のお着替えをご用意していますので、普段着のままお越しいただけます。お仕事帰りにも気軽にご利用ください。</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>どのくらいの頻度で通えばいいですか？</summary>
+      <p class="faq-answer">お体の状態やライフスタイルによって異なりますが、まずは月に1度、自分の体を見つめ直す時間としてご利用いただくのがおすすめです。無理なく続けられるペースをご相談ください。</p>
+    </details>
+  </div>
+</section>
+
+<section class="closing" id="reserve">
+  <div class="wrap">
+    <span class="section-en">Just for you</span>
+    <h2>最近、自分のことを<br>後回しにしていませんか？</h2>
+    <div class="divider"></div>
+    <p>「疲れたな」と感じたときこそ、少し立ち止まって、自分の体に目を向ける時間を。<br>月に一度のRoom-00で、心と体をゆるめて、また明日からの自分を少し好きになれる時間を過ごしませんか？</p>
+    <p>あなたのための休息時間を、ぜひRoom-00で。</p>
+    <a href="#" class="cta-button solid">ご予約・お問い合わせはこちら</a>
+  </div>
+</section>
+
+<footer>
+  <span class="logo">Room<em>-00</em></span>
+  <p>ボディメンテナンスサロン</p>
+  <a class="reserve-link" href="#">ご予約先はこちら</a>
+  <p style="margin-top:28px;">&copy; Room-00</p>
+</footer>
+
+<div class="sticky-cta">
+  <a href="#">ご予約はこちら</a>
+</div>
+
+</body>
+</html>
